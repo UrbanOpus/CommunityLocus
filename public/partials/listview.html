@@ -1,0 +1,16 @@
+<div class="blank-page" style="min-height: 100%" ng-controller="ListViewController">
+
+    <div class="container marketing" style="margin: 20px">
+
+        <a ng-href="#/item/{{ item.id }}" ng-repeat="item in searchResult">
+        <li style="color:white;font-size:20px;" >
+            {{ item.name }}
+            ({{ item.district }})
+
+            <span class="pull-right" ng-show="item.rating">{{ roundRatings(item.rating) }} / 10</span>
+        </li>
+        </a>
+
+    </div>
+
+</div>

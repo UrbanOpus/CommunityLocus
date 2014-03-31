@@ -1,0 +1,35 @@
+Category 1: Stability
+Prevalence of petty crime
+Prevalence of violent crime
+Threat of terror
+Threat of military conflict
+Threat of civil unrest/conflict
+Category 2: Healthcare
+Availability of private healthcare
+Quality of private healthcare
+Availability of public healthcare
+Quality of public healthcare
+Availability of over-the-counter drugs
+General healthcare indicators
+Category 3: Culture & Environment
+Humidity/temperature rating
+Discomfort of climate to travellers
+Level of corruption
+Social or religious restrictions
+Level of censorship
+Sporting availability
+Cultural availability
+Food and drink
+Consumer goods and services
+Category 4: Education
+Availability of private education
+Quality of private education
+Public education indicators
+Category 5: Infrastructure
+Quality of road network
+Quality of public transport
+Quality of international links
+Availability of good quality housing
+Quality of energy provision
+Quality of water provision
+Quality of telecommunications

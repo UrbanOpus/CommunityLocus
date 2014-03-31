@@ -1,0 +1,61 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 0
+		},
+		"geojson": {
+			"name": "geojson",
+			"type": "object",
+			"typeLabel": "object",
+			"required": true,
+			"id": "geojson",
+			"order": 1
+		},
+		"population": {
+			"name": "population",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "population",
+			"order": 2
+		},
+		"radius": {
+			"name": "radius",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "radius",
+			"order": 3
+		},
+		"lat": {
+			"name": "lat",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "lat",
+			"order": 4
+		},
+		"lon": {
+			"name": "lon",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "lon",
+			"order": 5
+		},
+		"scores": {
+			"name": "scores",
+			"type": "object",
+			"typeLabel": "object",
+			"required": false,
+			"id": "scores",
+			"order": 6
+		}
+	}
+}

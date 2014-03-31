@@ -1,0 +1,61 @@
+{
+	"type": "Collection",
+	"properties": {
+		"address": {
+			"name": "address",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "address",
+			"order": 0
+		},
+		"location": {
+			"name": "location",
+			"type": "array",
+			"typeLabel": "array",
+			"required": true,
+			"id": "location",
+			"order": 1
+		},
+		"type": {
+			"name": "type",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "type",
+			"order": 2
+		},
+		"year": {
+			"name": "year",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "year",
+			"order": 3
+		},
+		"month": {
+			"name": "month",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "month",
+			"order": 4
+		},
+		"district": {
+			"name": "district",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "district",
+			"order": 5
+		},
+		"rating": {
+			"name": "rating",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "rating",
+			"order": 6
+		}
+	}
+}

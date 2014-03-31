@@ -1,0 +1,46 @@
+<div class="blank-page" style="min-height: 100%" ng-controller="ScoreListController">
+
+    <div class="container marketing" style="margin: 20px">
+
+        <h1 style="color:white;">Score
+            <any ng-show="currentDistrict">
+                for {{ currentDistrict }}
+                <span class="pull-right">{{ round( calculateDistrictScore(currentDistrict) * 10 ) }}</span>
+            </any>
+        </h1>
+
+
+
+
+        <div class="panel-group" id="accordion" >
+            <div class="panel panel-default" ng-repeat="cat in category(currentDistrict)">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $index }}">
+                            {{ cat.name }}
+                            <span class="pull-right" ng-show="cat.calcWeight > 0">{{ round(cat.calcScore * 10) }} / {{ round(cat.calcWeight*100) }}</span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse{{ $index }}" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+
+                             <li style="font-size:15px;" ng-repeat="sub in cat.subcategory" >
+                                <any data-toggle="tooltip" data-placement="right" title="" data-html="true" ng-init-tool-tip>{{ sub.name }}</any>
+
+                                <span class="pull-right" ng-show="sub.calcWeight > 0">{{ round(sub.calcScore * 10) }} / {{ round(sub.calcWeight*100) }}</span>
+                                <!--<span class="pull-right" ng-hide="sub.weight > 0">N/A</span>-->
+                            </li>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,10 @@
+-add description on how the score is calculated
+-ui bug, fix the cluster issues
+-selected district should have border
+-revisit the score calculation for all, send email
+-screenshot
+
+-add complete search
+-push scores to hub
+-pull new data periodically
+-deploy it

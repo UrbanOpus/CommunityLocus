@@ -1,0 +1,191 @@
+{
+   "Category 1: Stability":{
+      "name":"Category 1: Stability",
+      "weight":0.25,
+      "score":0,
+      "subcategory":{
+         "Prevalence of petty crime":{
+            "name":"Prevalence of petty crime",
+            "weight":1,
+			"calcDesc":"I rate each crime depending on its type.\nI summed up all the crime ratings in a district, and divide by the population of that district.\ntScore = sumRatings/population\nTo normalize this score, I find the min and max tScore of all the districts.\nscore = ((score - minScore)/(maxScore - minScore))*10;\nSince positive score corresponds to no crimes, I have to inverse this score.\n inverseScore = 10-score",
+            "score":0
+         },
+         "Prevalence of violent crime":{
+            "name":"Prevalence of violent crime",
+            "weight":0,
+            "score":0
+         },
+         "Threat of terror":{
+            "name":"Threat of terror",
+            "weight":0,
+            "score":0
+         },
+         "Threat of military conflict":{
+            "name":"Threat of military conflict",
+            "weight":0,
+            "score":0
+         },
+         "Threat of civil unrest/conflict":{
+            "name":"Threat of civil unrest/conflict",
+            "weight":0,
+            "score":0
+         }
+      }
+   },
+   "Category 2: Healthcare":{
+      "name":"Category 2: Healthcare",
+      "weight":0,
+      "score":0,
+      "subcategory":{
+         "Availability of private healthcare":{
+            "name":"Availability of private healthcare",
+            "weight":0,
+            "score":0
+         },
+         "Quality of private healthcare":{
+            "name":"Quality of private healthcare",
+            "weight":0,
+            "score":0
+         },
+         "Availability of public healthcare":{
+            "name":"Availability of public healthcare",
+            "weight":0,
+            "score":0
+         },
+         "Quality of public healthcare":{
+            "name":"Quality of public healthcare",
+            "weight":0,
+            "score":0
+         },
+         "Availability of over-the-counter drugs":{
+            "name":"Availability of over-the-counter drugs",
+            "weight":0,
+            "score":0
+         },
+         "General healthcare indicators":{
+            "name":"General healthcare indicators",
+            "weight":0,
+            "score":0
+         }
+      }
+   },
+   "Category 3: Culture & Environment":{
+      "name":"Category 3: Culture & Environment",
+      "weight":0.25,
+      "score":0,
+      "subcategory":{
+         "Humidity/temperature rating":{
+            "name":"Humidity/temperature rating",
+            "weight":0,
+            "score":0
+         },
+         "Discomfort of climate to travellers":{
+            "name":"Discomfort of climate to travellers",
+            "weight":0,
+            "score":0
+         },
+         "Level of corruption":{
+            "name":"Level of corruption",
+            "weight":0,
+            "score":0
+         },
+         "Social or religious restrictions":{
+            "name":"Social or religious restrictions",
+            "weight":0,
+            "score":0
+         },
+         "Level of censorship":{
+            "name":"Level of censorship",
+            "weight":0,
+            "score":0
+         },
+         "Sporting availability":{
+            "name":"Sporting availability",
+            "weight":0,
+            "score":0
+         },
+         "Cultural availability":{
+            "name":"Cultural availability",
+            "weight":1,
+			"calcDesc":"I count up the amount of events per district, then do the normalization.\nFormula: score = eventCount\nscore = (score - minCount)/(maxCount - minCount)",
+            "score":0
+         },
+         "Food and drink":{
+            "name":"Food and drink",
+            "weight":1,
+			"calcDesc":"Each food vendor from Foursquare has a rating from 1-10. I summed up all the food vendors rating in the district and divide it by the amount of vendors in the district\nFormula: sumRatings/numberOfVendors",
+            "score":0
+         },
+         "Consumer goods and services":{
+            "name":"Consumer goods and services",
+            "weight":0,
+            "score":0
+         }
+      }
+   },
+   "Category 4: Education":{
+      "name":"Category 4: Education",
+      "weight":0.10,
+      "score":0,
+      "subcategory":{
+         "Availability of private education":{
+            "name":"Availability of private education",
+            "weight":0,
+            "score":0
+         },
+         "Quality of private education":{
+            "name":"Quality of private education",
+            "weight":0,
+            "score":0
+         },
+         "Public education indicators":{
+            "name":"Public education indicators",
+            "weight":1,
+			"calcDesc":"Each school has a rating from 1-10.\nI summed up all the school ratings in a district and divide by the number of schools in that district.\nFor each school that exists, I give additional 1/10 points.\nFormula: score = sumRatings/schoolCount",
+            "score":0
+         }
+      }
+   },
+   "Category 5: Infrastructure":{
+      "name":"Category 5: Infrastructure",
+      "weight":0,
+      "score":0,
+      "subcategory":{
+         "Quality of road network":{
+            "name":"Quality of road network",
+            "weight":0,
+            "score":0
+         },
+         "Quality of public transport":{
+            "name":"Quality of public transport",
+            "weight":0,
+            "score":0
+         },
+         "Quality of international links":{
+            "name":"Quality of international links",
+            "weight":0,
+            "score":0
+         },
+         "Availability of good quality housing":{
+            "name":"Availability of good quality housing",
+            "weight":0,
+            "score":0
+         },
+         "Quality of energy provision":{
+            "name":"Quality of energy provision",
+            "weight":0,
+            "score":0
+         },
+         "Quality of water provision":{
+            "name":"Quality of water provision",
+            "weight":0,
+            "score":0
+         },
+         "Quality of telecommunications":{
+            "name":"Quality of telecommunications",
+            "weight":0,
+            "score":0
+         }
+      }
+   }
+}

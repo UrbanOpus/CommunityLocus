@@ -1,0 +1,45 @@
+{
+	"type": "Collection",
+	"properties": {
+		"fsid": {
+			"name": "fsid",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "fsid",
+			"order": 0
+		},
+		"rating": {
+			"name": "rating",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "rating",
+			"order": 1
+		},
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 2
+		},
+		"location": {
+			"name": "location",
+			"type": "array",
+			"typeLabel": "array",
+			"required": true,
+			"id": "location",
+			"order": 3
+		},
+		"district": {
+			"name": "district",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "district",
+			"order": 4
+		}
+	}
+}
