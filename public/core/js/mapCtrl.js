@@ -341,14 +341,17 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                             //feature.properties.density = Math.round((sumRatings/ratingCount)*10)/10;
 
 
-                            ScoreService.districts[feature.properties.name].categoryScores["Category 3: Culture & Environment"].subcategory["Food and drink"].score =
-                                sumRatings/ratingCount;
+                            var foodScore = ScoreService.districts[feature.properties.name].categoryScores["Category 3: Culture & Environment"].subcategory["Food and drink"];
+                                foodScore.score = sumRatings/ratingCount;
 
+                            foodScore.ratingCount = ratingCount;
 
+                            foodScore.calcDesc =
+                                    "Formula: (sumRatings)/(NumVendors)\n"
+                                    + "Sum Ratings: " + sumRatings.toFixed(2) + "\n"
+                                    + "Number of Vendors: " + ratingCount + "\n";
 
                             //console.log(ScoreService.districts[feature.properties.name].categoryScores["Category 3: Culture & Environment"].subcategory["Food and drink"].score);
-
-
 
 
                             foodDataCount--;

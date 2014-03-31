@@ -26,93 +26,16 @@
       <file leaf-file-name="scoreCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/core/js/scoreCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="182" column="11" selection-start="5879" selection-end="5879" vertical-scroll-proportion="-14.4" vertical-offset="2916" max-vertical-offset="4806">
+            <state line="182" column="11" selection-start="5879" selection-end="5879" vertical-scroll-proportion="0.0" vertical-offset="2916" max-vertical-offset="4806">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/core/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="40" selection-start="26" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="listview.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/partials/listview.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="27" selection-start="299" selection-end="299" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="378">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="score.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/partials/score.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="80" selection-start="1329" selection-end="1329" vertical-scroll-proportion="-19.333334" vertical-offset="0" max-vertical-offset="918">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/partials/search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="10" selection-start="607" selection-end="607" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="414">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mapCtrl.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="mapCtrl.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/core/js/mapCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="13" selection-start="4917" selection-end="4917" vertical-scroll-proportion="0.0" vertical-offset="11552" max-vertical-offset="12366">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="directives.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/core/js/directives.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="1602">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="start" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/start">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="todo.txt" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/todo.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="565">
+            <state line="350" column="43" selection-start="12149" selection-end="12149" vertical-scroll-proportion="0.7463768" vertical-offset="5888" max-vertical-offset="12420">
               <folding />
             </state>
           </provider>
@@ -139,13 +62,13 @@
         <option value="$PROJECT_DIR$/public/partials/search.html" />
         <option value="$PROJECT_DIR$/public/core/js/routing.js" />
         <option value="$PROJECT_DIR$/public/plugins/heatmap/src/heatmap-leaflet.js" />
-        <option value="$PROJECT_DIR$/public/core/js/mapCtrl.js" />
         <option value="$PROJECT_DIR$/public/core/js/directives.js" />
         <option value="$PROJECT_DIR$/public/css/app.css" />
         <option value="$PROJECT_DIR$/public/partials/score.html" />
         <option value="$PROJECT_DIR$/public/core/js/scoreCtrl.js" />
         <option value="$PROJECT_DIR$/public/core/js/app.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/core/js/mapCtrl.js" />
       </list>
     </option>
   </component>
@@ -563,13 +486,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/core/js/scoreCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="11" selection-start="5879" selection-end="5879" vertical-scroll-proportion="-14.4" vertical-offset="2916" max-vertical-offset="4806">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/dpd-event/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="32" selection-start="791" selection-end="791" vertical-scroll-proportion="0.64955753" vertical-offset="209" max-vertical-offset="1116">
@@ -580,13 +496,6 @@
     <entry file="file://$PROJECT_DIR$/public/core/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/core/js/mapCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="13" selection-start="4917" selection-end="4917" vertical-scroll-proportion="0.0" vertical-offset="11552" max-vertical-offset="12366">
           <folding />
         </state>
       </provider>
@@ -629,15 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="1602">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/start">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="565">
@@ -648,6 +548,29 @@
     <entry file="file://$PROJECT_DIR$/todo.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/core/js/scoreCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="182" column="11" selection-start="5879" selection-end="5879" vertical-scroll-proportion="0.0" vertical-offset="2916" max-vertical-offset="4806">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="0.3345725" vertical-offset="0" max-vertical-offset="1602">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/core/js/mapCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="350" column="43" selection-start="12149" selection-end="12149" vertical-scroll-proportion="0.7463768" vertical-offset="5888" max-vertical-offset="12420">
           <folding />
         </state>
       </provider>

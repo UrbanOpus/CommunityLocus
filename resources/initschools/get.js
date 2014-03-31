@@ -31,15 +31,6 @@ request({
             }
             
             if( distName !== null ){
-
-           //Deleting all data
-//                dpd.schools.get({name: item.name},function(res){
-//                    for(var i in res){
-//                        dpd.schools.del(res[i].id);
-//                    }
-//                });
-    
-                    
                     
                 dpd.schools.post({
                     address: item.address,
