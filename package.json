@@ -1,0 +1,30 @@
+{
+  "name": "CommunityLocus",
+  "version": "0.0.0",
+  "description": "The Livability of a Neighbourhood",
+  "main": "server.js",
+  "dependencies": {
+    "dpd-event": "~0.0.2",
+    "deployd": "~0.6.10",
+    "dpd-s3": "~0.0.1-pre",
+    "request": "~2.33.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hshsiao/CommunityLocus"
+  },
+  "keywords": [
+    "livability"
+  ],
+  "author": "Ben",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hshsiao/CommunityLocus/issues"
+  },
+  "homepage": "https://github.com/hshsiao/CommunityLocus"
+}
