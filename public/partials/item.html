@@ -1,0 +1,17 @@
+<div class="blank-page" style="min-height: 100%" ng-controller="ItemController">
+
+    <div class="container marketing" style="margin: 20px">
+
+        <h1 style="color:white;font-size:20px;">{{ item.name }}
+
+        <span class="pull-right" ng-show="item.rating">{{ roundRatings(item.rating) }} / 10</span>
+
+            <br>
+            <a ng-click="locate();">
+                Locate
+            </a>
+
+        </h1>
+    </div>
+
+</div>

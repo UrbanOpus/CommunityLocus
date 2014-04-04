@@ -15,7 +15,7 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
         mapView.addLayer(cloudmade);
         //JSON.parse(document.body.textContent)
 
-        var heatmapLayer = L.TileLayer.heatMap({
+        var searchHeatmapLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
             radius: { value: 100, absolute: true },
@@ -29,6 +29,7 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                 1.0: "rgb(255,0,0)"
             }
         });
+
 
         var foodHeatmapLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
@@ -68,10 +69,10 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
             opacity: 0.8,
             gradient: {
                 0.45: "rgb(0,0,255)",
-                0.55: "rgb(0,255,255)",
-                0.65: "rgb(0,255,0)",
-                0.95: "yellow",
-                1.0: "rgb(255,0,0)"
+                //0.55: "rgb(0,255,255)",
+                0.65: "purple",
+                //0.95: "yellow",
+                1.0: "black"
             }
         });
 
@@ -95,12 +96,20 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
         var crimeMarkerLayer = new L.markerClusterGroup({showCoverageOnHover: false});
         var schoolMarkerLayer = new L.markerClusterGroup({showCoverageOnHover: false});
 
-        //map.heatmapLayer = heatmapLayer;
+        var searchMarkerLayer = new L.markerClusterGroup({showCoverageOnHover: false});
 
         var districtLayer = new L.LayerGroup();
 
         var heatmapsLayer = new L.LayerGroup();
         var markerLayer = new L.LayerGroup();
+
+
+        map.searchHeatmapLayer = searchHeatmapLayer;
+        map.searchMarkerLayer = searchMarkerLayer;
+
+        var searchLayer = new L.LayerGroup();
+        searchLayer.addLayer(searchHeatmapLayer);
+        searchLayer.addLayer(searchMarkerLayer);
 
         var foodLayer = new L.LayerGroup();
         foodLayer.addLayer(foodHeatmapLayer);
@@ -142,7 +151,10 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
             'Crimes Heatmap': crimeHeatmapLayer,
 
             'Events Heatmap': eventHeatmapLayer,
-            'Events Marker': eventMarkerLayer
+            'Events Marker': eventMarkerLayer,
+
+            'Search Heatmap': searchHeatmapLayer,
+            'Search Marker': searchMarkerLayer
         };
 
         var controls = L.control.layers(baseMaps, overlayMaps, {collapsed: true}).setPosition('bottomright');
@@ -157,10 +169,14 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
         heatmapsLayer.addLayer(crimeHeatmapLayer);
         heatmapsLayer.addLayer(eventHeatmapLayer);
 
+        heatmapsLayer.addLayer(searchHeatmapLayer);
+
         markerLayer.addLayer(foodMarkerLayer);
         markerLayer.addLayer(schoolMarkerLayer);
         markerLayer.addLayer(eventMarkerLayer);
         markerLayer.addLayer(crimeMarkerLayer);
+
+        markerLayer.addLayer(searchMarkerLayer);
 
 //        mapView.on( "zoomend", function( e ) {
 //            if (mapView.getZoom()>13) {
@@ -370,21 +386,34 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                                 var sumRatings = 0;
                                 for(var i= 0; i< result.length;i++){
                                     var item = result[i];
-                                    var rating = item.rating != null && item.rating/5 || .5;
+                                    var rating = item.rating;
 
                                     sumRatings += rating;
                                     crimeData.push({lat: item.location[1],
                                         lon: item.location[0],
-                                        value: rating});
+                                        value: rating/5});
 
                                 }
 
-                                ScoreService.districts[feature.properties.name].categoryScores["Category 1: Stability"].subcategory["Prevalence of petty crime"].score =
+                                var crimeScore = ScoreService.districts[feature.properties.name].categoryScores["Category 1: Stability"].subcategory["Prevalence of petty crime"];
+
+                                crimeScore.score =
                                     //Math.max(10-(((sumRatings/result.length) * result.length)/feature.properties.population)*1000,0);
                                     //Math.max(10-(result.length/feature.properties.population)*1000,0);
                                     //result.length/feature.properties.population;
-                                    sumRatings/feature.properties.population
+                                //    .5 * 1/(sumRatings/feature.properties.population)
+                                    1/(result.length/feature.properties.population);
 
+
+                                crimeScore.averageCrimeRatings = 5-(sumRatings/result.length);
+                                crimeScore.crimeRate = 1/(result.length/feature.properties.population);
+
+                                crimeScore.calcDesc =
+                                    "Formula: .5 * standardizedAvgCrimeRatings + .5 * standardizedCrimeRate\n"
+                                        + "Average Crime Ratings: " + crimeScore.averageCrimeRatings.toFixed(2) + "\n"
+                                        + "Crime Rate: " + crimeScore.crimeRate.toFixed(2) + "\n";
+
+                                //console.log(1/(sumRatings/feature.properties.population));
                                 //console.log(feature.properties.name + ": " + sumRatings*1000/feature.properties.population);
 
 
@@ -393,7 +422,8 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                                     crimeHeatmapLayer.setData(crimeData);
                                     $rootScope.crimeData = crimeData;
 
-                                    ScoreService.calculateCrimeScore();
+                                    ScoreService.calculateCrimeScoreNormalize();
+                                    //ScoreService.calculateCrimeScoreStandardize();
                                 }
 
                             }
@@ -420,14 +450,19 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                                     schoolMarkerLayer.addLayer(marker);
                                 }
 
+                                var schoolScore = ScoreService.districts[feature.properties.name].categoryScores["Category 4: Education"].subcategory["Public education indicators"];
+
                                 if(result.length == 0){
-                                    ScoreService.districts[feature.properties.name].categoryScores["Category 4: Education"].subcategory["Public education indicators"].score = 0;
+                                    schoolScore.score = 0;
                                 }else{
-                                    ScoreService.districts[feature.properties.name].categoryScores["Category 4: Education"].subcategory["Public education indicators"].score =
+                                    schoolScore.score =
                                         Math.min((sumRatings*10/result.length) + result.length,10);
                                 }
 
-
+                                schoolScore.calcDesc =
+                                    "Formula: AvgSchoolRatings + numSchools\n"
+                                        + "Number of Schools: " + result.length + "\n"
+                                        + "Average School Ratings: " + (sumRatings*10/result.length).toFixed(2) + "\n";
 
                                 schoolDataCount--;
                                 if( schoolDataCount == 0){
@@ -457,16 +492,23 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                                     eventMarkerLayer.addLayer(marker);
                                 }
 
-                                ScoreService.districts[feature.properties.name].categoryScores["Category 3: Culture & Environment"].subcategory["Cultural availability"].score =
-                                    result.length; //(result.length/feature.properties.population)*1000;
+                                var eventScore = ScoreService.districts[feature.properties.name].categoryScores["Category 3: Culture & Environment"].subcategory["Cultural availability"];
+                                eventScore.score =
+                                    (result.length/feature.properties.population)*1000;
 
+                                eventScore.eventRate = (result.length/feature.properties.population)*1000;
+
+                                eventScore.calcDesc =
+                                    "Formula: standardized (NumEvents / districtPopulation)\n"
+                                        + "Number of Events: " + result.length + "\n"
+                                        + "District Population: " + feature.properties.population + "\n";
 
                                 eventDataCount--;
                                 if( eventDataCount == 0){
                                     eventHeatmapLayer.setData(eventData);
                                     $rootScope.eventData = eventData;
 
-                                    ScoreService.calculateEventScore();
+                                    ScoreService.calculateEventScoreNormalized();
                                 }
 
                             }
@@ -640,13 +682,34 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
 
     };
 
-    map.setHeatMap = function (data){
-        map.heatmapLayer.setData(data);
+    map.setSearchHeatMap = function (data){
+
+        console.log(map.searchHeatmapLayer);
+        map.searchHeatmapLayer.setData(data);
+
+        map.searchMarkerLayer.clearLayers();
+
+        for(var i in data){
+            var item = data[i];
+
+            var marker = new L.marker([item.lat, item.lon], { title: item.name});
+            marker.bindPopup(item.name);
+
+            map.searchMarkerLayer.addLayer(marker);
+        }
+
     };
 
     map.locate = function (location, name){
-        L.marker(location).addTo(map.mapView);
-        //.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup()
+//        L.marker(location).addTo(map.mapView);
+//        //.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup()
+//        map.mapView.setView(location, 17);
+
+//        var marker = new L.marker(location, { title: name});
+//        marker.bindPopup(name);
+//
+//        map.searchMarkerLayer.addLayer(marker);
+
         map.mapView.setView(location, 17);
     };
 

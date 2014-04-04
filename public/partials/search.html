@@ -8,10 +8,20 @@
 
             <div class="input-group input-group-lg">
                 <input type="text" class="form-control" ng-model="searchText" placeholder="Name">
+
+
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="submit" ng-click="search($event);">Search</button>
                 </span>
+
+                <select class="form-control" ng-model="searchType" style="margin-left:10%">
+                    <option value="foods">Foods</option>
+                    <option value="events">Events</option>
+                    <option value="schools">Schools</option>
+                </select>
             </div>
+
+
         </form>
     </div>
 

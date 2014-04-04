@@ -71,7 +71,7 @@
    },
    "Category 3: Culture & Environment":{
       "name":"Category 3: Culture & Environment",
-      "weight":0.25,
+      "weight":0.50,
       "score":0,
       "subcategory":{
          "Humidity/temperature rating":{

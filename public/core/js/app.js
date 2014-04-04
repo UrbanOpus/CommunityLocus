@@ -2,6 +2,7 @@ var app = angular.module('CommunityLocus', ['ngSanitize']);
 
 app.controller('MainController', function($scope, $rootScope){
     $rootScope.searchResult = {};
+    $rootScope.searchType = 'foods';
 });
 
 

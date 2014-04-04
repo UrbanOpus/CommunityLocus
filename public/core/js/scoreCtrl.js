@@ -53,7 +53,7 @@ app.factory('ScoreService', function($rootScope){
             return scoreService.districts[name].categoryScores;
     };
 
-    scoreService.calculateEventScore = function(){
+    scoreService.calculateEventScoreNormalized = function(){
         var maxScore = 0;
         var minScore = 0;
 
@@ -79,7 +79,7 @@ app.factory('ScoreService', function($rootScope){
         }
     }
 
-    scoreService.calculateCrimeScore = function(){
+    scoreService.calculateCrimeScoreNormalize = function(){
         var maxScore = 0;
         var minScore = 0;
 
@@ -101,6 +101,99 @@ app.factory('ScoreService', function($rootScope){
             district.categoryScores["Category 1: Stability"].subcategory["Prevalence of petty crime"].score = score;
 
         }
+    }
+
+    scoreService.standardize = function(scores){
+        var average = 0;
+        var sumScore = 0;
+        var numItems = 0;
+
+        for(var i in scores){
+            var score = scores[i].score;
+
+            sumScore += score;
+            numItems += 1;
+        }
+
+        average = sumScore/numItems;
+
+        var sumDiffSqr = 0;
+        var stdev = 0;
+
+        for(var i in scores){
+            var score = scores[i].score;
+
+            sumDiffSqr += Math.pow((score - average),2);
+        }
+        stdev = Math.sqrt(sumDiffSqr/(numItems-1));
+
+        var retScores = {};
+        for(var i in scores){
+            var score = scores[i].score;
+
+            retScores[scores[i].name] = (score - average)/stdev;
+        }
+
+        return retScores;
+    }
+
+
+    scoreService.calculateCrimeScoreStandardize = function(){
+
+        var calcCrimeRate = [];
+        var calcAvgCrimeRatings = [];
+        for(var i in scoreService.districts){
+            var district = scoreService.districts[i];
+            var scoreObj = district.categoryScores["Category 1: Stability"].subcategory["Prevalence of petty crime"];
+
+            calcCrimeRate.push({name: district.name,
+                score: scoreObj.crimeRate});
+
+            calcAvgCrimeRatings.push({name: district.name,
+                score: scoreObj.averageCrimeRatings});
+        }
+
+        var stdCrimeRate = scoreService.standardize(calcCrimeRate);
+        var stdAvgCrimeRatings = scoreService.standardize(calcAvgCrimeRatings);
+
+
+        for(var i in scoreService.districts){
+            var district = scoreService.districts[i];
+
+            district.categoryScores["Category 1: Stability"].subcategory["Prevalence of petty crime"].score =
+                .5 * (5 + stdCrimeRate[district.name]) + .5 * (5 + stdAvgCrimeRatings[district.name]);
+
+            //console.log(district.name + ": " + district.categoryScores["Category 1: Stability"].subcategory["Prevalence of petty crime"].score);
+        }
+
+
+    }
+
+    scoreService.calculateEventScoreStandardize = function(){
+
+        var calcEventRate = [];
+        for(var i in scoreService.districts){
+            var district = scoreService.districts[i];
+            var scoreObj =  district.categoryScores["Category 3: Culture & Environment"].subcategory["Cultural availability"];
+
+            calcEventRate.push({name: district.name,
+                score: scoreObj.eventRate});
+
+        }
+
+        var stdEventRate = scoreService.standardize(calcEventRate);
+
+
+        for(var i in scoreService.districts){
+            var district = scoreService.districts[i];
+
+            district.categoryScores["Category 3: Culture & Environment"].subcategory["Cultural availability"].score =
+                5 + stdEventRate[district.name];
+
+            console.log(district.name + ": " + district.categoryScores["Category 3: Culture & Environment"].subcategory["Cultural availability"].score);
+        }
+
+
     }
 
     scoreService.calculateDistrictScore = function(name){
@@ -191,6 +284,12 @@ app.controller('SearchController', function ($scope, $rootScope, $location, mapS
 
     //$rootScope.searchResult = {};
     $scope.searchText = "";
+    $scope.searchType = "foods";
+
+    $scope.$watch('searchType', function() {
+        $rootScope.searchType = $scope.searchType;
+        //$rootScope.$apply();
+    });
 
     $scope.search = function(e){
         if($scope.searchText == ""){
@@ -198,7 +297,9 @@ app.controller('SearchController', function ($scope, $rootScope, $location, mapS
             return false;
         }
 
-        dpd.foods.get({name: {$regex: $scope.searchText, $options: 'i' }},function(result, error){
+        //console.log($scope.searchType);
+
+        dpd[$scope.searchType].get({name: {$regex: $scope.searchText, $options: 'i' }},function(result, error){
             $rootScope.searchResult = result;
 
             console.log($rootScope.searchResult);
@@ -211,12 +312,12 @@ app.controller('SearchController', function ($scope, $rootScope, $location, mapS
 
                 filteredData.push({lat: item.location[1],
                     lon: item.location[0],
-                    value: rating});
-
+                    value: 1,
+                    name: item.name});
             }
 
             if( filteredData.length > 0){
-                mapService.setHeatMap(filteredData);
+                mapService.setSearchHeatMap(filteredData);
             }
 
 
@@ -242,7 +343,7 @@ app.controller('ItemController', function ($scope, $rootScope, $routeParams, $lo
 
     $scope.item = {};
 
-    dpd.foods.get($routeParams.id,function(result, error){
+    dpd[$rootScope.searchType].get($routeParams.id,function(result, error){
         $scope.item = result;
         $scope.$apply();
 
@@ -250,7 +351,7 @@ app.controller('ItemController', function ($scope, $rootScope, $routeParams, $lo
     });
 
     $scope.locate = function (){
-        mapService.locate({lat: $scope.item.location[1], lng: $scope.item.location[0]});
+        mapService.locate({lat: $scope.item.location[1], lng: $scope.item.location[0]}, $scope.item.name);
         $location.path( "/map" );
     };
 
