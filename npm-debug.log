@@ -1,0 +1,92 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json CommunityLocus@0.0.0 No README data
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ 'C:\\Users\\Hsiao\\Documents\\CommunityLocus',
+7 verbose install   [ 'dpd-event', 'deployd', 'dpd-s3', 'request' ] ]
+8 info preinstall CommunityLocus@0.0.0
+9 warn package.json s3-bucket-resource@0.0.1-pre No description
+10 warn package.json s3-bucket-resource@0.0.1-pre No repository field.
+11 warn package.json s3-bucket-resource@0.0.1-pre No README data
+12 verbose readDependencies using package.json deps
+13 verbose already installed skipping dpd-event@~0.0.2 C:\Users\Hsiao\Documents\CommunityLocus
+14 verbose already installed skipping deployd@~0.6.10 C:\Users\Hsiao\Documents\CommunityLocus
+15 verbose cache add [ 'dpd-s3@~0.0.1-pre', null ]
+16 verbose cache add name=undefined spec="dpd-s3@~0.0.1-pre" args=["dpd-s3@~0.0.1-pre",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'dpd-s3@~0.0.1-pre',
+17 verbose parsed url   path: 'dpd-s3@~0.0.1-pre',
+17 verbose parsed url   href: 'dpd-s3@~0.0.1-pre' }
+18 verbose cache add name="dpd-s3" spec="~0.0.1-pre" args=["dpd-s3","~0.0.1-pre"]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: '~0.0.1-pre',
+19 verbose parsed url   path: '~0.0.1-pre',
+19 verbose parsed url   href: '~0.0.1-pre' }
+20 verbose addNamed [ 'dpd-s3', '~0.0.1-pre' ]
+21 verbose addNamed [ null, '>=0.0.1-pre <0.1.0-0' ]
+22 verbose already installed skipping request@~2.33.0 C:\Users\Hsiao\Documents\CommunityLocus
+23 silly lockFile 688a4c49-dpd-s3-0-0-1-pre dpd-s3@~0.0.1-pre
+24 verbose lock dpd-s3@~0.0.1-pre C:\Users\Hsiao\AppData\Roaming\npm-cache\688a4c49-dpd-s3-0-0-1-pre.lock
+25 silly addNameRange { name: 'dpd-s3', range: '>=0.0.1-pre <0.1.0-0', hasData: false }
+26 verbose url raw dpd-s3
+27 verbose url resolving [ 'https://registry.npmjs.org/', './dpd-s3' ]
+28 verbose url resolved https://registry.npmjs.org/dpd-s3
+29 info trying registry request attempt 1 at 22:25:13
+30 http GET https://registry.npmjs.org/dpd-s3
+31 http 200 https://registry.npmjs.org/dpd-s3
+32 silly registry.get cb [ 200,
+32 silly registry.get   { date: 'Fri, 04 Apr 2014 05:25:15 GMT',
+32 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+32 silly registry.get     etag: '"D3U9JMR05G8GWQOS7BL4NSI1E"',
+32 silly registry.get     'content-type': 'application/json',
+32 silly registry.get     via: '1.1 varnish',
+32 silly registry.get     'cache-control': 'max-age=1',
+32 silly registry.get     'content-length': '1340',
+32 silly registry.get     'accept-ranges': 'bytes',
+32 silly registry.get     age: '0',
+32 silly registry.get     'x-served-by': 'cache-v37-ASH, cache-sv62-SJC3',
+32 silly registry.get     'x-cache': 'MISS, MISS',
+32 silly registry.get     'x-cache-hits': '0, 0',
+32 silly registry.get     'x-timer': 'S1396589115.487519264,VS0,VS38,VE133,VE170',
+32 silly registry.get     vary: 'Accept',
+32 silly registry.get     'keep-alive': 'timeout=10, max=50',
+32 silly registry.get     connection: 'Keep-Alive' } ]
+33 silly addNameRange number 2 { name: 'dpd-s3', range: '>=0.0.1-pre <0.1.0-0', hasData: true }
+34 silly addNameRange versions [ 'dpd-s3', [ '0.1.0' ] ]
+35 silly lockFile 688a4c49-dpd-s3-0-0-1-pre dpd-s3@~0.0.1-pre
+36 silly lockFile 688a4c49-dpd-s3-0-0-1-pre dpd-s3@~0.0.1-pre
+37 error notarget No compatible version found: dpd-s3@'>=0.0.1-pre <0.1.0-0'
+37 error notarget Valid install targets:
+37 error notarget ["0.1.0"]
+37 error notarget
+37 error notarget This is most likely not a problem with npm itself.
+37 error notarget In most cases you or one of your dependencies are requesting
+37 error notarget a package version that doesn't exist.
+38 error System Windows_NT 6.1.7600
+39 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+40 error cwd C:\Users\Hsiao\Documents\CommunityLocus
+41 error node -v v0.10.26
+42 error npm -v 1.4.3
+43 error code ETARGET
+44 verbose exit [ 1, true ]
