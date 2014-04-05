@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="scoreCtrl.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="scoreCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/core/js/scoreCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="314" column="28" selection-start="9916" selection-end="9916" vertical-scroll-proportion="0.32576618" vertical-offset="5365" max-vertical-offset="6624">
+            <state line="314" column="28" selection-start="9916" selection-end="9916" vertical-scroll-proportion="-2.84" vertical-offset="5581" max-vertical-offset="6624">
               <folding />
             </state>
           </provider>
@@ -52,10 +52,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mapCtrl.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="mapCtrl.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/core/js/mapCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="510" column="80" selection-start="20354" selection-end="20354" vertical-scroll-proportion="0.0" vertical-offset="8844" max-vertical-offset="13554">
+            <state line="526" column="53" selection-start="21054" selection-end="21054" vertical-scroll-proportion="0.67391306" vertical-offset="9096" max-vertical-offset="13608">
               <folding />
             </state>
           </provider>
@@ -98,16 +98,16 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/partials/search.html" />
         <option value="$PROJECT_DIR$/public/core/js/app.js" />
-        <option value="$PROJECT_DIR$/public/core/js/mapCtrl.js" />
         <option value="$PROJECT_DIR$/public/core/js/scoreCtrl.js" />
+        <option value="$PROJECT_DIR$/public/core/js/mapCtrl.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1040" />
+    <option name="width" value="1296" />
+    <option name="height" value="699" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -348,14 +348,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1040" extended-state="7" />
+    <frame x="-8" y="-8" width="1296" height="699" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12916666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -487,13 +487,6 @@
         <state line="18" column="10" selection-start="331" selection-end="331" vertical-scroll-proportion="0.6022305" vertical-offset="0" max-vertical-offset="1188" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/dpd-s3/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="34" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="4734">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/plugins/heatmap/src/heatmap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="208" column="21" selection-start="7662" selection-end="7668" vertical-scroll-proportion="0.33206832" vertical-offset="3461" max-vertical-offset="11754">
@@ -606,16 +599,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/core/js/mapCtrl.js">
+    <entry file="file://$PROJECT_DIR$/public/core/js/scoreCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="510" column="80" selection-start="20354" selection-end="20354" vertical-scroll-proportion="0.0" vertical-offset="8844" max-vertical-offset="13554">
+        <state line="314" column="28" selection-start="9916" selection-end="9916" vertical-scroll-proportion="-2.84" vertical-offset="5581" max-vertical-offset="6624">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/core/js/scoreCtrl.js">
+    <entry file="file://$PROJECT_DIR$/public/core/js/mapCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="314" column="28" selection-start="9916" selection-end="9916" vertical-scroll-proportion="0.32576618" vertical-offset="5365" max-vertical-offset="6624">
+        <state line="526" column="53" selection-start="21054" selection-end="21054" vertical-scroll-proportion="0.67391306" vertical-offset="9096" max-vertical-offset="13608">
           <folding />
         </state>
       </provider>

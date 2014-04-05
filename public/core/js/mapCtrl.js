@@ -514,14 +514,17 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                             }
                         });
 
-                        setTimeout(function(){
+                        function setDistrictLivabilityScore (){
 
+                            if(foodDataCount != 0 || crimeDataCount != 0 || schoolDataCount != 0 || eventDataCount != 0) {
+                                setTimeout(setDistrictLivabilityScore, 200);
+                                return;
+                            }
+                            feature.properties.density = Math.round(ScoreService.calculateDistrictScore(feature.properties.name)*10);
+                            geojson.resetStyle(layer);
+                        }
 
-                           feature.properties.density = Math.round(ScoreService.calculateDistrictScore(feature.properties.name)*10);
-                           geojson.resetStyle(layer);
-
-                           //console.log(ScoreService.calculateDistrictScore(feature.properties.name));
-                        },5000);
+                        setDistrictLivabilityScore();
                     }
                 });
 
