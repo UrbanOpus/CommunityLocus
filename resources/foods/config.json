@@ -40,6 +40,14 @@
 			"required": false,
 			"id": "district",
 			"order": 4
+		},
+		"url": {
+			"name": "url",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "url",
+			"order": 5
 		}
 	}
 }

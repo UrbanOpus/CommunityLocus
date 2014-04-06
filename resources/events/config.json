@@ -41,21 +41,13 @@
 			"id": "location",
 			"order": 4
 		},
-		"obj": {
-			"name": "obj",
-			"type": "object",
-			"typeLabel": "object",
-			"required": false,
-			"id": "obj",
-			"order": 5
-		},
 		"district": {
 			"name": "district",
 			"type": "string",
 			"typeLabel": "string",
 			"required": false,
 			"id": "district",
-			"order": 6
+			"order": 5
 		}
 	}
 }

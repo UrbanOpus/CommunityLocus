@@ -36,6 +36,7 @@ function GetFoodsByDistrict (district, offset, itemsPerPage, maxCount, returnFun
     request('https://api.foursquare.com/v2/venues/explore?'+
     "ll="+ district.lat +"," + district.lon +"&"+
     "radius="+ district.radius +"&"+
+    "llAcc="+ 10 +"&"+    
     "section=food&"+
     "v=20140305&"+
     "limit=" + itemsPerPage + "&"+
@@ -73,7 +74,7 @@ function GetFoodDistrict(item){
     if( item !== null){
 
     dpd.foods.get({fsid: item.id}, function(result, err){
-        if(result.length === 0 ){
+        
             var lat = item.location.lat;
             var lon = item.location.lng;
             
@@ -81,18 +82,31 @@ function GetFoodDistrict(item){
                if(districtName !== null){
                 var location = item.location;
                 
+                if(result.length === 0 ){
                 dpd.foods.post({
                     name: item.name,
                     rating: item.rating,
                     district: districtName,
                     location: [location.lng, location.lat],
                     fsid: item.id,
+                    url: "https://foursquare.com/v/foursquare-hq/" + item.id,
                     obj: item
-                });     
+                });
+                }else{
+                dpd.foods.post(result[0].id,{
+                    name: item.name,
+                    rating: item.rating,
+                    district: districtName,
+                    location: [location.lng, location.lat],
+                    fsid: item.id,
+                    url: "https://foursquare.com/v/foursquare-hq/" + item.id,
+                    obj: item
+                });
+                }
             }
         });
         
-        }
+        
     });
 
         

@@ -338,11 +338,7 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                             for(var i= 0; i< result.length;i++){
 
                                 var item = result[i];
-
-                                //if(item.location[1] != null && item.location[0] != null){
-                                var rating = item.rating != null && item.rating/10 || .5;
-                                sumRatings += item.rating != null && item.rating || 0;
-                                ratingCount += item.rating != null && 1 || 0;
+                                 var rating = item.rating != null && item.rating/10 || .5;
 
                                 filteredData.push({lat: item.location[1],
                                     lon: item.location[0],
@@ -354,26 +350,9 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                                 foodMarkerLayer.addLayer(marker);
                             }
 
-                            //feature.properties.density = Math.round((sumRatings/ratingCount)*10)/10;
-
-
-                            var foodScore = ScoreService.districts[feature.properties.name].categoryScores["Category 3: Culture & Environment"].subcategory["Food and drink"];
-                                foodScore.score = sumRatings/ratingCount;
-
-                            foodScore.ratingCount = ratingCount;
-
-                            foodScore.calcDesc =
-                                    "Formula: (sumRatings)/(NumVendors)\n"
-                                    + "Sum Ratings: " + sumRatings.toFixed(2) + "\n"
-                                    + "Number of Vendors: " + ratingCount + "\n";
-
-                            //console.log(ScoreService.districts[feature.properties.name].categoryScores["Category 3: Culture & Environment"].subcategory["Food and drink"].score);
-
-
                             foodDataCount--;
                             if( foodDataCount == 0){
                                 foodHeatmapLayer.setData(filteredData);
-
                                 $rootScope.foodData = filteredData;
                             }
                         });
@@ -383,47 +362,19 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
 
                             if(result !== null){
 
-                                var sumRatings = 0;
                                 for(var i= 0; i< result.length;i++){
                                     var item = result[i];
                                     var rating = item.rating;
 
-                                    sumRatings += rating;
                                     crimeData.push({lat: item.location[1],
                                         lon: item.location[0],
                                         value: rating/5});
-
                                 }
-
-                                var crimeScore = ScoreService.districts[feature.properties.name].categoryScores["Category 1: Stability"].subcategory["Prevalence of petty crime"];
-
-                                crimeScore.score =
-                                    //Math.max(10-(((sumRatings/result.length) * result.length)/feature.properties.population)*1000,0);
-                                    //Math.max(10-(result.length/feature.properties.population)*1000,0);
-                                    //result.length/feature.properties.population;
-                                //    .5 * 1/(sumRatings/feature.properties.population)
-                                    1/(result.length/feature.properties.population);
-
-
-                                crimeScore.averageCrimeRatings = 5-(sumRatings/result.length);
-                                crimeScore.crimeRate = 1/(result.length/feature.properties.population);
-
-                                crimeScore.calcDesc =
-                                    "Formula: .5 * standardizedAvgCrimeRatings + .5 * standardizedCrimeRate\n"
-                                        + "Average Crime Ratings: " + crimeScore.averageCrimeRatings.toFixed(2) + "\n"
-                                        + "Crime Rate: " + crimeScore.crimeRate.toFixed(2) + "\n";
-
-                                //console.log(1/(sumRatings/feature.properties.population));
-                                //console.log(feature.properties.name + ": " + sumRatings*1000/feature.properties.population);
-
 
                                 crimeDataCount--;
                                 if( crimeDataCount == 0){
                                     crimeHeatmapLayer.setData(crimeData);
                                     $rootScope.crimeData = crimeData;
-
-                                    ScoreService.calculateCrimeScoreNormalize();
-                                    //ScoreService.calculateCrimeScoreStandardize();
                                 }
 
                             }
@@ -434,12 +385,10 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
 
                             if(result !== null){
 
-                                var sumRatings = 0;
                                 for(var i= 0; i< result.length;i++){
                                     var item = result[i];
                                     var rating = item.rating != null && item.rating/10 || .5;
 
-                                    sumRatings += rating;
                                     schoolData.push({lat: item.location[1],
                                         lon: item.location[0],
                                         value: rating});
@@ -449,20 +398,6 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
 
                                     schoolMarkerLayer.addLayer(marker);
                                 }
-
-                                var schoolScore = ScoreService.districts[feature.properties.name].categoryScores["Category 4: Education"].subcategory["Public education indicators"];
-
-                                if(result.length == 0){
-                                    schoolScore.score = 0;
-                                }else{
-                                    schoolScore.score =
-                                        Math.min((sumRatings*10/result.length) + result.length,10);
-                                }
-
-                                schoolScore.calcDesc =
-                                    "Formula: AvgSchoolRatings + numSchools\n"
-                                        + "Number of Schools: " + result.length + "\n"
-                                        + "Average School Ratings: " + (sumRatings*10/result.length).toFixed(2) + "\n";
 
                                 schoolDataCount--;
                                 if( schoolDataCount == 0){
@@ -492,23 +427,10 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                                     eventMarkerLayer.addLayer(marker);
                                 }
 
-                                var eventScore = ScoreService.districts[feature.properties.name].categoryScores["Category 3: Culture & Environment"].subcategory["Cultural availability"];
-                                eventScore.score =
-                                    (result.length/feature.properties.population)*1000;
-
-                                eventScore.eventRate = (result.length/feature.properties.population)*1000;
-
-                                eventScore.calcDesc =
-                                    "Formula: standardized (NumEvents / districtPopulation)\n"
-                                        + "Number of Events: " + result.length + "\n"
-                                        + "District Population: " + feature.properties.population + "\n";
-
                                 eventDataCount--;
                                 if( eventDataCount == 0){
                                     eventHeatmapLayer.setData(eventData);
                                     $rootScope.eventData = eventData;
-
-                                    ScoreService.calculateEventScoreNormalized();
                                 }
 
                             }

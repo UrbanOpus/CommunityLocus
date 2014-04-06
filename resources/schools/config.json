@@ -48,6 +48,14 @@
 			"required": true,
 			"id": "location",
 			"order": 5
+		},
+		"url": {
+			"name": "url",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "url",
+			"order": 6
 		}
 	}
 }

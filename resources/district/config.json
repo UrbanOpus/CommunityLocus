@@ -56,6 +56,14 @@
 			"required": false,
 			"id": "scores",
 			"order": 6
+		},
+		"totalscore": {
+			"name": "totalscore",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "totalscore",
+			"order": 7
 		}
 	}
 }

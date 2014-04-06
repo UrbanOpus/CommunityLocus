@@ -22,6 +22,26 @@ app.factory('ScoreService', function($rootScope){
     var scoreService = {};
 
     scoreService.init = function (mapDistricts){
+        var districts = {};
+
+        for(var i in mapDistricts){
+            var category = mapDistricts[i].scores;
+
+            districts[mapDistricts[i].name] = {
+                categoryScores: category,
+                name: mapDistricts[i].name
+            };
+        }
+
+        console.log(districts);
+
+        scoreService.defaultCategoryScores = category;
+
+        scoreService.districts = districts;
+        $rootScope.$apply();
+    };
+
+    scoreService.init2 = function (mapDistricts){
         $.getJSON("data/categoryParsed.json", function(json) {
             var districts = {};
 
@@ -220,7 +240,7 @@ app.factory('ScoreService', function($rootScope){
             category.calcWeight = category.weight/totalWeight;
 
             if(category.calcWeight){
-            score += subcategoryScore * category.calcWeight;//category.weight;
+                score += subcategoryScore * category.calcWeight;//category.weight;
             }
 
 
@@ -331,11 +351,16 @@ app.controller('SearchController', function ($scope, $rootScope, $location, mapS
     };
 });
 
-app.controller('ListViewController', function ($scope, $rootScope) {
+app.controller('ListViewController', function ($scope, $rootScope, mapService, $location) {
 
     $scope.roundRatings = function (rating){
         return rating !== null && (Math.round(rating * 10) / 10) || null;
     }
+
+    $scope.locate = function (item){
+        mapService.locate({lat: item.location[1], lng: item.location[0]}, item.name);
+        $location.path( "/map" );
+    };
 
 });
 

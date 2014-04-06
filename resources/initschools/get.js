@@ -17,7 +17,7 @@ request({
     
         for(var i in parsedJson){
             var item = parsedJson[i];
-            var pt = [item.lon, item.lat];
+            var pt = item.location;
             var distName = null;
             
             for(var j in district){
@@ -35,10 +35,11 @@ request({
                 dpd.schools.post({
                     address: item.address,
                     district: distName,
-                    location: [item.lon, item.lat],
+                    location: item.location,
                     rating: item.rating,
                     name: item.name,
-                    rank: item.rank
+                    rank: item.rank,
+                    url: item.url
                 });           
 
                                 
