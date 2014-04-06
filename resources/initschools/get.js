@@ -3,7 +3,7 @@
 setWait(true);
  
 request({
-  uri: "http://localhost:2403/data/schoolGeocoded.json",
+  uri: host + "/data/schoolGeocoded.json",
   rejectUnauthorized: false,
   method: "GET"
 }, function (error, response, body){
@@ -47,7 +47,7 @@ request({
 
     }
     
-    done(error,"Done: " + count);
+    done(error,"Done: " + parsedJson.length + " schools.");
     
     });
     

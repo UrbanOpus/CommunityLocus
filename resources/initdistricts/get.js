@@ -3,7 +3,7 @@
 setWait(true);
 
 request({
-    uri: "http://localhost:2403/data/districts.json",
+    uri: host + "/data/districts.json",
     rejectUnauthorized: false,
     method: "GET"
 }, function (error, response, body){

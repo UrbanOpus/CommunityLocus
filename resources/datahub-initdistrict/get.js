@@ -23,20 +23,20 @@ for(var i= 0; i< districts.length;i++){
 //done(null,info);
 
 
-//    request({
-//        uri: "https://hub.urbanopus.net/wotkit/api/sensors/",
-//        rejectUnauthorized: false,
-//        method: "put",
-//
-//        auth: {
-//            user: '0804553fc185c659',
-//            pass: "cff5bc2495725e81"
-//        },
-//        json: info
-//    }, function (error, response, body){
-//        //console.log(error,response);
-//        done(error,body);
-//    });
+    request({
+        uri: "https://hub.urbanopus.net/wotkit/api/sensors/",
+        rejectUnauthorized: false,
+        method: "put",
+
+        auth: {
+            user: '0804553fc185c659',
+            pass: "cff5bc2495725e81"
+        },
+        json: info
+    }, function (error, response, body){
+        //console.log(error,response);
+        done(error,body);
+    });
 
 for(var i= 0; i< districts.length;i++){
     

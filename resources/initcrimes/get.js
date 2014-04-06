@@ -6,7 +6,7 @@ setWait(true);
 //dpd.deletealldata.get("crime");
 
 request({
-  uri: "http://localhost:2403/data/crimeDataParsedGeocoded.json",
+  uri: host + "/data/crimeDataParsedGeocoded.json",
   rejectUnauthorized: false,
   method: "GET"
 }, function (error, response, body){
@@ -71,7 +71,7 @@ request({
 
     }
     
-    done(error,"Done: " + count);
+    done(error,"Done: " + count + " crimes.");
     
     });
     
