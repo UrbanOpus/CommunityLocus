@@ -38,8 +38,8 @@ function UploadScore(districts, numCalculations){
 
             dpd.district.put(district.id,{scores: district.scores, totalscore: districtScore});            
         }
-        
-        request({uri: "http://localhost:2403/datahub-uploaddata/", method: "GET"});
+        //console.log(host);
+        request({uri: host+ "/datahub-uploaddata/", method: "GET"});
         done(null, "Done calculation");
     }
 }

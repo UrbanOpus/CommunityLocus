@@ -1,27 +1,27 @@
 setWait(true);
 
 console.log("Initializing District Data");
-ExecuteURL("http://localhost:2403/deletealldata/district",function(){
-ExecuteURL("http://localhost:2403/initdistricts", function(){
+ExecuteURL(host + "/deletealldata/district",function(){
+ExecuteURL(host + "/initdistricts", function(){
 
 console.log("Initializing Crime Data");
-ExecuteURL("http://localhost:2403/deletealldata/crime",function(){
-ExecuteURL("http://localhost:2403/initcrimes", function(){
+ExecuteURL(host + "/deletealldata/crime",function(){
+ExecuteURL(host + "/initcrimes", function(){
 
 console.log("Initializing School Data");
-ExecuteURL("http://localhost:2403/deletealldata/schools",function(){
-ExecuteURL("http://localhost:2403/initschools", function(){
+ExecuteURL(host + "/deletealldata/schools",function(){
+ExecuteURL(host + "/initschools", function(){
 
 //console.log("Initializing Foods Data");
-//ExecuteURL("http://localhost:2403/deletealldata/foods",function(){
-//ExecuteURL("http://localhost:2403/initfoods", function(){
+//ExecuteURL(host + "/deletealldata/foods",function(){
+//ExecuteURL(host + "/initfoods", function(){
 //
 //console.log("Initializing Events Data");
-//ExecuteURL("http://localhost:2403/deletealldata/events",function(){
-//ExecuteURL("http://localhost:2403/initevents", function(){
+//ExecuteURL(host + "/deletealldata/events",function(){
+//ExecuteURL(host + "/initevents", function(){
 
 console.log("Calculating Score");
-ExecuteURL("http://localhost:2403/calculatescore/",function(){
+ExecuteURL(host + "/calculatescore/",function(){
 
 done(null, "Done");
 });

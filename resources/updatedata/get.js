@@ -1,13 +1,13 @@
 setWait(true);
 
 console.log("Updating Foods Data");
-ExecuteURL("http://localhost:2403/initfoods", function(){
+ExecuteURL(host + "/initfoods", function(){
 
 console.log("Updating Events Data");
-ExecuteURL("http://localhost:2403/initevents", function(){
+ExecuteURL(host + "/initevents", function(){
 
 console.log("Calculating Score");
-ExecuteURL("http://localhost:2403/calculatescore/",function(){
+ExecuteURL(host + "/calculatescore/",function(){
 
 done(null, "Done");
 });

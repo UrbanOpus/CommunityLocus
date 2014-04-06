@@ -44,7 +44,7 @@
       <file leaf-file-name="test.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/core/js/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108">
+            <state line="8" column="0" selection-start="257" selection-end="257" vertical-scroll-proportion="-2.88" vertical-offset="0" max-vertical-offset="936">
               <folding />
             </state>
           </provider>
@@ -82,23 +82,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listview.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/partials/listview.html">
+      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/node_modules/dpd-event/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="76" selection-start="517" selection-end="517" vertical-scroll-proportion="0.43494424" vertical-offset="0" max-vertical-offset="810">
-              <folding>
-                <element signature="n#style#0;n#a#0;n#span#0;n#li#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="4" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="-0.25486726" vertical-offset="216" max-vertical-offset="1134">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/app.css">
+      <file leaf-file-name="listview.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/partials/listview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="1" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3852">
-              <folding />
+            <state line="13" column="76" selection-start="517" selection-end="517" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="810">
+              <folding>
+                <element signature="n#style#0;n#a#0;n#span#0;n#li#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,7 +118,6 @@
         <option value="$PROJECT_DIR$/node_modules/deployd/lib/script.js" />
         <option value="$PROJECT_DIR$/node_modules/dpd-httprequest/index.js" />
         <option value="$PROJECT_DIR$/node_modules/dpd-jsonreader/index.js" />
-        <option value="$PROJECT_DIR$/node_modules/dpd-event/index.js" />
         <option value="$PROJECT_DIR$/public/core/js/routing.js" />
         <option value="$PROJECT_DIR$/public/plugins/heatmap/src/heatmap-leaflet.js" />
         <option value="$PROJECT_DIR$/public/core/js/directives.js" />
@@ -128,10 +127,11 @@
         <option value="$PROJECT_DIR$/public/partials/item.html" />
         <option value="$PROJECT_DIR$/public/core/js/app.js" />
         <option value="$PROJECT_DIR$/public/core/js/mapCtrl.js" />
-        <option value="$PROJECT_DIR$/public/core/js/test.js" />
         <option value="$PROJECT_DIR$/public/core/js/scoreCtrl.js" />
         <option value="$PROJECT_DIR$/public/css/app.css" />
         <option value="$PROJECT_DIR$/public/partials/listview.html" />
+        <option value="$PROJECT_DIR$/public/core/js/test.js" />
+        <option value="$PROJECT_DIR$/node_modules/dpd-event/index.js" />
       </list>
     </option>
   </component>
@@ -245,6 +245,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dpd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CommunityLocus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CommunityLocus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="partials" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -300,6 +322,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CommunityLocus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CommunityLocus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dpd-event" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -473,13 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/plugins/dpd/dpd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="362" column="12" selection-start="37202" selection-end="37205" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/deployd/lib/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="21" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.3220676" vertical-offset="0" max-vertical-offset="0" />
@@ -541,13 +574,6 @@
     <entry file="file://$PROJECT_DIR$/public/core/js/routing.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="40" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/dpd-event/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="32" selection-start="791" selection-end="791" vertical-scroll-proportion="0.64955753" vertical-offset="209" max-vertical-offset="1116">
           <folding />
         </state>
       </provider>
@@ -615,13 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/core/js/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="565">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/partials/item.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="12" selection-start="336" selection-end="400" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="468">
@@ -646,13 +665,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/deployd/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/partials/listview.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="76" selection-start="517" selection-end="517" vertical-scroll-proportion="0.43494424" vertical-offset="0" max-vertical-offset="810">
+        <state line="13" column="76" selection-start="517" selection-end="517" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="810">
           <folding>
             <element signature="n#style#0;n#a#0;n#span#0;n#li#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/plugins/dpd/dpd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="22" selection-start="30603" selection-end="30612" vertical-scroll-proportion="-0.5869565" vertical-offset="2052" max-vertical-offset="10404">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/core/js/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="257" selection-end="257" vertical-scroll-proportion="-2.88" vertical-offset="0" max-vertical-offset="936">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/dpd-event/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="-0.25486726" vertical-offset="216" max-vertical-offset="1134">
+          <folding />
         </state>
       </provider>
     </entry>
