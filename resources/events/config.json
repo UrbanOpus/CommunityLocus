@@ -9,21 +9,13 @@
 			"id": "name",
 			"order": 0
 		},
-		"desc": {
-			"name": "desc",
-			"type": "string",
-			"typeLabel": "string",
-			"required": false,
-			"id": "desc",
-			"order": 1
-		},
 		"url": {
 			"name": "url",
 			"type": "string",
 			"typeLabel": "string",
 			"required": false,
 			"id": "url",
-			"order": 2
+			"order": 1
 		},
 		"meetupid": {
 			"name": "meetupid",
@@ -31,7 +23,7 @@
 			"typeLabel": "string",
 			"required": true,
 			"id": "meetupid",
-			"order": 3
+			"order": 2
 		},
 		"location": {
 			"name": "location",
@@ -39,7 +31,7 @@
 			"typeLabel": "array",
 			"required": false,
 			"id": "location",
-			"order": 4
+			"order": 3
 		},
 		"district": {
 			"name": "district",
@@ -47,7 +39,7 @@
 			"typeLabel": "string",
 			"required": false,
 			"id": "district",
-			"order": 5
+			"order": 4
 		}
 	}
 }

@@ -286,7 +286,8 @@ app.factory('DataService', function($rootScope){
 
     dataService.getDataByDistrict = function (dataName, districtName, data, skip, returnFunction){
 
-        dpd[dataName].get({district: districtName, $skip: skip, $limit: 200},function(result, error){
+        dpd[dataName].get({district: districtName, $skip: skip, $limit: 200,
+                $fields:{rating:1, location:1, name:1}},function(result, error){
             if(result.length > 0 ){
                 data = data.concat(result);
                 dataService.getDataByDistrict(dataName, districtName, data, skip+200, returnFunction);

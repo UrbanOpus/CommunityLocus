@@ -1,2 +1,2 @@
 mongorestore -h oceanic.mongohq.com:10088 -d CommunityLocus_Database -u ben -p mongoPassword C:\Users\Hsiao\Documents\CommunityLocus\mongodb-backup3\deployd
-mongo oceanic.mongohq.com:10088/CommunityLocus_Database -u <user> -p<password>
+mongo oceanic.mongohq.com:10088/CommunityLocus_Database -u ben -p mongoPassword

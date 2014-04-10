@@ -128,19 +128,19 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
         schoolLayer.addLayer(schoolMarkerLayer);
 
         var baseMaps = {
-           // 'Foods': foodLayer,
+            // 'Foods': foodLayer,
             //'Schools': schoolLayer,
-           // 'Crimes': crimeLayer,
-           // 'Evnets': eventLayer
-           // 'Heatmap': heatmapsLayer,
-           // 'Markers': markerLayer
+            // 'Crimes': crimeLayer,
+            // 'Evnets': eventLayer
+            // 'Heatmap': heatmapsLayer,
+            // 'Markers': markerLayer
         }
 
 
         var overlayMaps = {
 
             'Districts': districtLayer,
-           //'Markers': markerLayer
+            //'Markers': markerLayer
 
             'Foods Heatmap': foodHeatmapLayer,
             'Foods Marker': foodMarkerLayer,
@@ -230,16 +230,16 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
             if( map.currentDistrict != layer.feature.properties.name ){
 
 
-            layer.setStyle({
-                weight: 5,
-                color: '#666',
-                dashArray: '',
-                fillOpacity: 0.5
-            });
+                layer.setStyle({
+                    weight: 5,
+                    color: '#666',
+                    dashArray: '',
+                    fillOpacity: 0.5
+                });
 
-            if (!L.Browser.ie && !L.Browser.opera) {
-                layer.bringToFront();
-            }
+                if (!L.Browser.ie && !L.Browser.opera) {
+                    layer.bringToFront();
+                }
             }
         }
 
@@ -250,7 +250,7 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
             info.update();
 
             if( map.currentDistrict != layer.feature.properties.name ){
-            geojson.resetStyle(e.target);
+                geojson.resetStyle(e.target);
             }
         }
 
@@ -266,7 +266,7 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
             });
 
             if(map.currentLayer){
-            geojson.resetStyle(map.currentLayer);
+                geojson.resetStyle(map.currentLayer);
             }
 
             info.update();
@@ -288,176 +288,216 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
 
         }
 
-        var districtNames = [];
+//        localStorage.removeItem('districts');
+//        localStorage.removeItem('crime');
+//        localStorage.removeItem('schools');
 
-//        $.getJSON("data/crimedata.json", function(json) {
-//            console.log(json);
-//
-//        });
+        var storedDistricts = JSON.parse(localStorage.getItem('districts'));
 
-        dpd.district.get(function(districts, error) {
-
-            map.districts = districts;
-            ScoreService.init(districts);
-
-
-            var filteredData = [];
-            var foodDataCount = 0;
-
-            var crimeData = [];
-            var crimeDataCount = 0;
-
-            var schoolData = [];
-            var schoolDataCount = 0;
-
-            var eventData = [];
-            var eventDataCount = 0;
-
-            //crimeLayer.setData(crimeData);
-
-            for(var i in districts){
-
-                var cDistrict = districts[i];
-                var feature = L.geoJson(districts[i].geojson, {
-                    style: style,
-                    onEachFeature: function onEachFeature(feature, layer) {
-                        layer.on({
-                            mouseover: highlightFeature,
-                            mouseout: resetHighlight,
-                            click: zoomToFeature
-                        });
+        if (storedDistricts == null){
+            $.getJSON('data/districts.json', function (data) {
+                localStorage.setItem('districts', JSON.stringify(data));
+                storedDistricts = data;
+                InitData();
+            });
+        }else{
+            InitData();
+        }
 
 
-                        feature.properties.population = cDistrict.population;
+        function InitData (){
 
-                        foodDataCount++;
-                        DataService.getDataByDistrict("foods", cDistrict.name, [], 0, function(result){
-                            var sumRatings = 0;
-                            var ratingCount = 0;
+            dpd.district.get({$fields: {geojson: 0}},function(districts, error) {
 
-                            for(var i= 0; i< result.length;i++){
 
-                                var item = result[i];
-                                 var rating = item.rating != null && item.rating/10 || .5;
+                for(var i in districts){
+                    for(var j in storedDistricts){
+                        if(districts[i].name == storedDistricts[j].name){
+                            districts[i].geojson = storedDistricts[j].geojson;
+                        }
+                    }
+                }
 
-                                filteredData.push({lat: item.location[1],
-                                    lon: item.location[0],
-                                    value: rating});
+                map.districts = districts;
+                ScoreService.init(districts);
 
-                                var marker = new L.marker([item.location[1], item.location[0]], { title: item.name});
-                                marker.bindPopup(item.name + "<br>Rating: " + item.rating);
 
-                                foodMarkerLayer.addLayer(marker);
-                            }
+                var filteredData = [];
+                var foodDataCount = 0;
 
-                            foodDataCount--;
-                            if( foodDataCount == 0){
-                                foodHeatmapLayer.setData(filteredData);
-                                $rootScope.foodData = filteredData;
-                            }
-                        });
+                var crimeData = [];
+                var crimeDataCount = 0;
 
-                        crimeDataCount++;
-                        DataService.getDataByDistrict("crime", cDistrict.name, [], 0, function(result){
+                var schoolData = [];
+                var schoolDataCount = 0;
 
-                            if(result !== null){
+                var eventData = [];
+                var eventDataCount = 0;
+
+                crimeDataCount++;
+                var storedCrimeData = JSON.parse(localStorage.getItem('crimes'));
+                if (storedCrimeData == null){
+                    $.getJSON('data/crime.json', function (data) {
+                        localStorage.setItem('crimes', JSON.stringify(data));
+                        storedCrimeData = data;
+                        InitCrimeData(data);
+                    });
+                }else{
+                    InitCrimeData(storedCrimeData);
+                }
+
+                function InitCrimeData(result){
+
+                    if(result !== null){
+
+                        for(var i= 0; i< result.length;i++){
+                            var item = result[i];
+                            var rating = item.rating;
+
+                            crimeData.push({lat: item.location[1],
+                                lon: item.location[0],
+                                value: rating/5});
+                        }
+
+                        crimeDataCount--;
+                        crimeHeatmapLayer.setData(crimeData);
+                        $rootScope.crimeData = crimeData;
+                    }
+                }
+
+
+                schoolDataCount++;
+                var storedSchoolData = JSON.parse(localStorage.getItem('schools'));
+                if (storedSchoolData == null){
+                    $.getJSON('data/schools.json', function (data) {
+                        localStorage.setItem('schools', JSON.stringify(data));
+                        storedSchoolData = data;
+                        InitSchoolData(data);
+                    });
+                }else{
+                    InitSchoolData(storedSchoolData);
+                }
+
+                function InitSchoolData(result){
+
+                    if(result !== null){
+
+                        for(var i= 0; i< result.length;i++){
+                            var item = result[i];
+                            var rating = item.rating != null && item.rating/10 || .5;
+
+                            schoolData.push({lat: item.location[1],
+                                lon: item.location[0],
+                                value: rating});
+
+                            var marker = new L.marker([item.location[1], item.location[0]], { title: item.name});
+                            marker.bindPopup(item.name + "<br>Rating: " + item.rating + "<br>Ranking: " + item.rank);
+
+                            schoolMarkerLayer.addLayer(marker);
+                        }
+
+                        schoolDataCount--;
+                        schoolHeatmapLayer.setData(schoolData);
+                        $rootScope.schoolData = schoolData;
+                    }
+                }
+
+
+                for(var i in districts){
+
+                    var cDistrict = districts[i];
+                    var feature = L.geoJson(districts[i].geojson, {
+                        style: style,
+                        onEachFeature: function onEachFeature(feature, layer) {
+                            layer.on({
+                                mouseover: highlightFeature,
+                                mouseout: resetHighlight,
+                                click: zoomToFeature
+                            });
+
+
+                            feature.properties.population = cDistrict.population;
+
+                            foodDataCount++;
+                            DataService.getDataByDistrict("foods", cDistrict.name, [], 0, function(result){
+                                var sumRatings = 0;
+                                var ratingCount = 0;
 
                                 for(var i= 0; i< result.length;i++){
-                                    var item = result[i];
-                                    var rating = item.rating;
 
-                                    crimeData.push({lat: item.location[1],
-                                        lon: item.location[0],
-                                        value: rating/5});
-                                }
-
-                                crimeDataCount--;
-                                if( crimeDataCount == 0){
-                                    crimeHeatmapLayer.setData(crimeData);
-                                    $rootScope.crimeData = crimeData;
-                                }
-
-                            }
-                        });
-
-                        schoolDataCount++;
-                        DataService.getDataByDistrict("schools", cDistrict.name, [], 0, function(result){
-
-                            if(result !== null){
-
-                                for(var i= 0; i< result.length;i++){
                                     var item = result[i];
                                     var rating = item.rating != null && item.rating/10 || .5;
 
-                                    schoolData.push({lat: item.location[1],
+                                    filteredData.push({lat: item.location[1],
                                         lon: item.location[0],
                                         value: rating});
 
                                     var marker = new L.marker([item.location[1], item.location[0]], { title: item.name});
-                                    marker.bindPopup(item.name + "<br>Rating: " + item.rating + "<br>Ranking: " + item.rank);
+                                    marker.bindPopup(item.name + "<br>Rating: " + item.rating);
 
-                                    schoolMarkerLayer.addLayer(marker);
+                                    foodMarkerLayer.addLayer(marker);
                                 }
 
-                                schoolDataCount--;
-                                if( schoolDataCount == 0){
-                                    schoolHeatmapLayer.setData(schoolData);
-                                    $rootScope.schoolData = schoolData;
+                                foodDataCount--;
+                                if( foodDataCount == 0){
+                                    foodHeatmapLayer.setData(filteredData);
+                                    $rootScope.foodData = filteredData;
                                 }
+                            });
 
+                            eventDataCount++;
+                            DataService.getDataByDistrict("events", cDistrict.name, [], 0, function(result){
+
+                                if(result !== null){
+
+                                    for(var i= 0; i< result.length;i++){
+                                        var item = result[i];
+                                        //var rating = item.rating != null && item.rating/10 || .5;
+
+                                        eventData.push({lat: item.location[1],
+                                            lon: item.location[0],
+                                            value: 1});
+
+                                        var marker = new L.marker([item.location[1], item.location[0]], { title: item.name })
+                                        marker.bindPopup(item.name);
+
+                                        eventMarkerLayer.addLayer(marker);
+                                    }
+
+                                    eventDataCount--;
+                                    if( eventDataCount == 0){
+                                        eventHeatmapLayer.setData(eventData);
+                                        $rootScope.eventData = eventData;
+                                    }
+
+                                }
+                            });
+
+                            function setDistrictLivabilityScore (){
+
+                                if(foodDataCount != 0 || crimeDataCount != 0 || schoolDataCount != 0 || eventDataCount != 0) {
+                                    //if(!geojson){
+                                    setTimeout(setDistrictLivabilityScore, 200);
+                                    return;
+                                }
+                                //feature.properties.density = Math.round(ScoreService.calculateDistrictScore(feature.properties.name)*10);
+
+                                feature.properties.density = Math.round(cDistrict.totalscore*10);
+                                geojson.resetStyle(layer);
                             }
-                        });
 
-                        eventDataCount++;
-                        DataService.getDataByDistrict("events", cDistrict.name, [], 0, function(result){
-
-                            if(result !== null){
-
-                                for(var i= 0; i< result.length;i++){
-                                    var item = result[i];
-                                    //var rating = item.rating != null && item.rating/10 || .5;
-
-                                    eventData.push({lat: item.location[1],
-                                        lon: item.location[0],
-                                        value: 1});
-
-                                    var marker = new L.marker([item.location[1], item.location[0]], { title: item.name })
-                                    marker.bindPopup(item.name);
-
-                                    eventMarkerLayer.addLayer(marker);
-                                }
-
-                                eventDataCount--;
-                                if( eventDataCount == 0){
-                                    eventHeatmapLayer.setData(eventData);
-                                    $rootScope.eventData = eventData;
-                                }
-
-                            }
-                        });
-
-                        function setDistrictLivabilityScore (){
-
-                            if(foodDataCount != 0 || crimeDataCount != 0 || schoolDataCount != 0 || eventDataCount != 0) {
-                                setTimeout(setDistrictLivabilityScore, 200);
-                                return;
-                            }
-                            feature.properties.density = Math.round(ScoreService.calculateDistrictScore(feature.properties.name)*10);
-                            geojson.resetStyle(layer);
+                            setDistrictLivabilityScore();
                         }
+                    });
 
-                        setDistrictLivabilityScore();
-                    }
-                });
-
-                geojson = feature.addTo(districtLayer);
-
-            }
+                    geojson = feature.addTo(districtLayer);
 
 
 
-            //console.log(result);
-        });
+                }
+            });
+
+        }
 
 
         var info = L.control();

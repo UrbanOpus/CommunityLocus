@@ -62,21 +62,21 @@ function GetEventDistrict(item){
                 if(result.length === 0){
                 dpd.events.post({
                     name: item.name,
-                    desc: item.description,
+                    //desc: item.description,
                     meetupid: item.id,
                     url: item.event_url,
                     district: districtName,
-                    obj: item,
+                    //obj: item,
                     location: [lon, lat]
                 });
                 }else{
                     dpd.events.post(result[0].id,{
                     name: item.name,
-                    desc: item.description,
+                    //desc: item.description,
                     meetupid: item.id,
                     url: item.event_url,
                     district: districtName,
-                    obj: item,
+                    //obj: item,
                     location: [lon, lat]
                 });
                 }
