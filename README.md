@@ -1,4 +1,4 @@
-## Documentation
+## Community Locus
 
 ## Deployd Dashboard
 localhost:2403/dashboard/
@@ -45,7 +45,17 @@ localhost:2403/writetodisk/{collectionName}
 GETDISTRICT - this will output the district name given latitude and longitude
 how to use: dpd.getdistrict.get({lat: lat, lon: lon}, function( districtName, error){ //some script
 
-## How to create new category
+## Setting up
+
+1. Setup mongodb server
+2. Install node
+3. Edit server.js, I have uploaded server.js for localhost testing and server2.js for deployment on Heroku as template
+You have to edit the mongodb server configuration and also the default server port
+4. Run the server by typing "node server.js" in the CommunityLocus folder
+5. Deployd should now initalize all the collections into Mongodb, type localhost:2403/initdata into browser to intialize all data
+6. Go to localhost:2403 to see the website
+
+## Creating new category
 
 1. edit CommunityLocus/public/data/categoryParsed.json
 
