@@ -309,7 +309,6 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
 
             dpd.district.get({$fields: {geojson: 0}},function(districts, error) {
 
-
                 for(var i in districts){
                     for(var j in storedDistricts){
                         if(districts[i].name == storedDistricts[j].name){
@@ -473,6 +472,8 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                                 }
                             });
 
+                            feature.properties.density = Math.round(cDistrict.totalscore*10);
+
                             function setDistrictLivabilityScore (){
 
                                 if(foodDataCount != 0 || crimeDataCount != 0 || schoolDataCount != 0 || eventDataCount != 0) {
@@ -482,7 +483,6 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                                 }
                                 //feature.properties.density = Math.round(ScoreService.calculateDistrictScore(feature.properties.name)*10);
 
-                                feature.properties.density = Math.round(cDistrict.totalscore*10);
                                 geojson.resetStyle(layer);
                             }
 

@@ -125,7 +125,7 @@
    },
    "Category 4: Education":{
       "name":"Category 4: Education",
-      "weight":0.10,
+      "weight":0.25,
       "score":0,
       "subcategory":{
          "Availability of private education":{
