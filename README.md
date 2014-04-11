@@ -44,3 +44,28 @@ localhost:2403/writetodisk/{collectionName}
 GETDISTRICT - this will output the district name given latitude and longitude
 how to use: dpd.getdistrict.get({lat: lat, lon: lon}, function( districtName, error){ //some script
 
+How to create new category
+1. edit CommunityLocus/public/data/categoryParsed.json
+2. go to url localhost:2403/initscores/
+this will insert new category into all district scores json file
+3. create a new collection and edit the fields
+4. create a new event, you can follow templates like /initfoods
+under the on get, write your script to parse and push the data into mongodb
+The collection should get the district name by using dpd.getdistrict.get
+After you have successfully parsed the data, push it into mongodb by dpd.collectionName.push({jsonfile});
+5. calculate the new scores by editing /calculatescores
+You can use the food template in calculatescores
+You can add in score description by editing the district.scores before pushing onto Mongodb
+6. edit mapCtrl.js under public/core/js/
+
+You have to create a new heatmapLayer and a new markerLayer
+Add both layer into the overlayMaps
+
+If its static data, you can follow crime/school's template
+If its dynamic data, you can follow food/event's template
+
+For each data point, you need to get the data and push the lat, lon, value into the heatmap layer
+You also need to push a new marker into markerLayer
+
+7. add search type in public/partials/search.html
+and edit public/core/js/scoreCtrl.js under SearchController for any inconsistency
