@@ -18,7 +18,7 @@ function DeleteAllData(dataName){
 
 function GetAllData (dataName, data, skip, returnFunction){
       
-    dpd[dataName].get({$skip: skip, $limit: 200},function(result, error){
+    dpd[dataName].get({$skip: skip, $limit: 200, $fields: {id:1}},function(result, error){
                 
         if(result.length > 0 ){
             data = data.concat(result);
