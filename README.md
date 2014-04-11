@@ -1,16 +1,17 @@
-Documentation
+## Documentation
 
+## Deployd Dashboard
 localhost:2403/dashboard/
 This will link to the deployd dashboard.
 You need the key to enter which can be found at .dpd folder in keys.txt or keys.json
 
-Collections
+### Collections
 Inside the dashboard, you can create or delete new collections.
 In the properties tab, you can add new fields to a collection
 To use the deployd api, you can check out the documentation under the API tab.
 In the events tab, you can input javascripts to customize your collection rest behaviours.
 
-Events
+### Events
 You can also create new events. Events are just urls that performs specific actions defined by the scripts.
 I have several scripts, these scripts can be activated by going to destinated url
 localhost:2403/initscores/
@@ -44,7 +45,7 @@ localhost:2403/writetodisk/{collectionName}
 GETDISTRICT - this will output the district name given latitude and longitude
 how to use: dpd.getdistrict.get({lat: lat, lon: lon}, function( districtName, error){ //some script
 
-How to create new category
+## How to create new category
 
 1. edit CommunityLocus/public/data/categoryParsed.json
 
