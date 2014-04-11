@@ -11,7 +11,7 @@ In the properties tab, you can add new fields to a collection
 To use the deployd api, you can check out the documentation under the API tab.
 In the events tab, you can input javascripts to customize your collection rest behaviours.
 
-### Events
+### Events and Scripts
 You can also create new events. Events are just urls that performs specific actions defined by the scripts.
 I have several scripts, these scripts can be activated by going to destinated url
 localhost:2403/initscores/
