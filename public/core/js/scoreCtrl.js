@@ -297,6 +297,19 @@ app.factory('DataService', function($rootScope){
         });
     };
 
+    dataService.getData = function (dataName, data, skip, returnFunction){
+
+        dpd[dataName].get({$skip: skip, $limit: 200,
+            $fields:{rating:1, location:1, name:1}},function(result, error){
+            if(result.length > 0 ){
+                data = data.concat(result);
+                dataService.getData(dataName, data, skip+200, returnFunction);
+            }else{
+                returnFunction(data);
+            }
+        });
+    };
+
 
     return dataService;
 });

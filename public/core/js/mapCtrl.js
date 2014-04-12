@@ -301,6 +301,7 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                 InitData();
             });
         }else{
+            console.log("Got stored district data from local storage.")
             InitData();
         }
 
@@ -342,6 +343,7 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                         InitCrimeData(data);
                     });
                 }else{
+                    console.log("Got stored crime data from local storage.")
                     InitCrimeData(storedCrimeData);
                 }
 
@@ -374,7 +376,9 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                         InitSchoolData(data);
                     });
                 }else{
+                    console.log("Got stored school data from local storage.")
                     InitSchoolData(storedSchoolData);
+
                 }
 
                 function InitSchoolData(result){

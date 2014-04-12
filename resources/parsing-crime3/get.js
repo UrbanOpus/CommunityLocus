@@ -29,8 +29,17 @@ request({
 
 
             if(geoStrInput == str){
-                GetCrimeDistrict(str, geocodedItem, item);
-                break;
+            
+            parsedData.push({
+                address: str,
+                lat: geocodedItem.location[1],
+                lon: geocodedItem.location[0],
+                type: item.TYPE,
+                year: item.YEAR,
+                month: item.MONTH
+            });
+            
+                successfulParse++;
 
 
             }
@@ -38,15 +47,14 @@ request({
             curRow++;
         }
 
-//    fs.writeFile("C:/crimeDataParsed.json", JSON.stringify(parsedData), function(err) {
-//    if(err) {
-//        console.log(err);
-//    } else {
-//        console.log("The file was saved!");
-//    }
-        console.log(successfulParse);
-        done(null,"successfulParse");
-//    });
+    fs.writeFile("C:/crimeDataParsedGeocoded.json", JSON.stringify(parsedData), function(err) {
+    if(err) {
+        console.log(err);
+    } else {
+        console.log("The file was saved!");
+    }
+        done(null,"successfulParse: " + successfulParse);
+    }); 
 
 
     });
@@ -56,14 +64,8 @@ request({
 function GetCrimeDistrict(address, geocodedItem, item){
     dpd.getdistrict.get({lat: geocodedItem.location[1], lon: geocodedItem.location[0]},function(districtName){
         if(districtName !== null){
-            dpd.crime.post({
-                address: geocodedItem["Output Address"],
-                lat: geocodedItem.Y,
-                lon: geocodedItem.X,
-                type: item.TYPE,
-                year: item.YEAR,
-                month: item.MONTH
-            });
+ 
+
         }
     });
 }

@@ -8,3 +8,5 @@
 -push scores to hub
 -pull new data periodically
 -deploy it
+
+-if new events/food add, if old replace
