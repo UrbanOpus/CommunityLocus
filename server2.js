@@ -1,15 +1,11 @@
 var deployd = require('deployd');
 
 var server = deployd({
-  port: process.env.PORT || 2403,
+  port: 2403,
   db: {
-    host: 'oceanic.mongohq.com',
-    port: 10088,
-    name: 'CommunityLocus_Database',
-    credentials: {
-      username: 'ben',
-      password: 'mongoPassword'
-    }
+  port: 27017,
+  host: '127.0.0.1',
+  name: 'deployd'
   }
 });
 
