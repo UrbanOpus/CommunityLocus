@@ -43,6 +43,10 @@ localhost:2403/initscores/
 * GETDISTRICT - this will output the district name given latitude and longitude
   how to use: dpd.getdistrict.get({lat: lat, lon: lon}, function( districtName, error){ //some script
 
+* GEOCODE - this will geocode an address in Canada into latitude and longitude
+  how to use: dpd["geocode"].get({address: str}, function(location){ //some script
+  the return value is an array of [lon, lat]
+
 ## Setting up
 
 1. Setup mongodb server
