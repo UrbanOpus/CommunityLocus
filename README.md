@@ -51,7 +51,7 @@ localhost:2403/initscores/
 
 1. Setup mongodb server
 2. Install node
-3. Edit server.js, I have uploaded server.js for localhost testing and server2.js for deployment on Heroku as template
+3. Edit server.js, I have uploaded server-local.js for localhost testing and server-heroku.js for deployment on Heroku as template
 You have to edit the mongodb server configuration and also the default server port
 4. Run the server by typing "node server.js" in the CommunityLocus folder
 5. Deployd should now initalize all the collections into Mongodb, type localhost:2403/initdata into browser to intialize all data
