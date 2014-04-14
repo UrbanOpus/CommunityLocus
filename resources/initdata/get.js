@@ -12,13 +12,13 @@ console.log("Initializing School Data");
 ExecuteURL(host + "/deletealldata/schools",function(){
 ExecuteURL(host + "/initschools", function(){
 
-//console.log("Initializing Foods Data");
-//ExecuteURL(host + "/deletealldata/foods",function(){
-//ExecuteURL(host + "/initfoods", function(){
-//
-//console.log("Initializing Events Data");
-//ExecuteURL(host + "/deletealldata/events",function(){
-//ExecuteURL(host + "/initevents", function(){
+console.log("Initializing Foods Data");
+ExecuteURL(host + "/deletealldata/foods",function(){
+ExecuteURL(host + "/initfoods", function(){
+
+console.log("Initializing Events Data");
+ExecuteURL(host + "/deletealldata/events",function(){
+ExecuteURL(host + "/initevents", function(){
 
 console.log("Calculating Score");
 ExecuteURL(host + "/calculatescore/",function(){
@@ -26,9 +26,9 @@ ExecuteURL(host + "/calculatescore/",function(){
 done(null, "Done");
 });
 
-//}); });
-//
-//}); });
+}); });
+
+}); });
 
 }); });
 
