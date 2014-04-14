@@ -405,6 +405,57 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
                     }
                 }
 
+                DataService.getData("foods", [], 0, function(result){
+                    var sumRatings = 0;
+                    var ratingCount = 0;
+
+                    for(var i= 0; i< result.length;i++){
+
+                        var item = result[i];
+                        var rating = item.rating != null && item.rating/10 || .5;
+
+                        filteredData.push({lat: item.location[1],
+                            lon: item.location[0],
+                            value: rating});
+
+                        var marker = new L.marker([item.location[1], item.location[0]], { title: item.name});
+                        marker.bindPopup(item.name + "<br>Rating: " + item.rating);
+
+                        foodMarkerLayer.addLayer(marker);
+                    }
+
+
+                        foodHeatmapLayer.setData(filteredData);
+                        $rootScope.foodData = filteredData;
+
+                });
+
+                DataService.getData("events", [], 0, function(result){
+
+                    if(result !== null){
+
+                        for(var i= 0; i< result.length;i++){
+                            var item = result[i];
+                            //var rating = item.rating != null && item.rating/10 || .5;
+
+                            eventData.push({lat: item.location[1],
+                                lon: item.location[0],
+                                value: 1});
+
+                            var marker = new L.marker([item.location[1], item.location[0]], { title: item.name })
+                            marker.bindPopup(item.name);
+
+                            eventMarkerLayer.addLayer(marker);
+                        }
+
+
+                            eventHeatmapLayer.setData(eventData);
+                            $rootScope.eventData = eventData;
+
+
+                    }
+                });
+
 
                 for(var i in districts){
 
@@ -420,77 +471,17 @@ app.factory('mapService', function($rootScope, $http, $route, $location, ScoreSe
 
 
                             feature.properties.population = cDistrict.population;
-
-                            foodDataCount++;
-                            DataService.getDataByDistrict("foods", cDistrict.name, [], 0, function(result){
-                                var sumRatings = 0;
-                                var ratingCount = 0;
-
-                                for(var i= 0; i< result.length;i++){
-
-                                    var item = result[i];
-                                    var rating = item.rating != null && item.rating/10 || .5;
-
-                                    filteredData.push({lat: item.location[1],
-                                        lon: item.location[0],
-                                        value: rating});
-
-                                    var marker = new L.marker([item.location[1], item.location[0]], { title: item.name});
-                                    marker.bindPopup(item.name + "<br>Rating: " + item.rating);
-
-                                    foodMarkerLayer.addLayer(marker);
-                                }
-
-                                foodDataCount--;
-                                if( foodDataCount == 0){
-                                    foodHeatmapLayer.setData(filteredData);
-                                    $rootScope.foodData = filteredData;
-                                }
-                            });
-
-                            eventDataCount++;
-                            DataService.getDataByDistrict("events", cDistrict.name, [], 0, function(result){
-
-                                if(result !== null){
-
-                                    for(var i= 0; i< result.length;i++){
-                                        var item = result[i];
-                                        //var rating = item.rating != null && item.rating/10 || .5;
-
-                                        eventData.push({lat: item.location[1],
-                                            lon: item.location[0],
-                                            value: 1});
-
-                                        var marker = new L.marker([item.location[1], item.location[0]], { title: item.name })
-                                        marker.bindPopup(item.name);
-
-                                        eventMarkerLayer.addLayer(marker);
-                                    }
-
-                                    eventDataCount--;
-                                    if( eventDataCount == 0){
-                                        eventHeatmapLayer.setData(eventData);
-                                        $rootScope.eventData = eventData;
-                                    }
-
-                                }
-                            });
-
                             feature.properties.density = Math.round(cDistrict.totalscore*10);
 
-                            function setDistrictLivabilityScore (){
-
-                                if(foodDataCount != 0 || crimeDataCount != 0 || schoolDataCount != 0 || eventDataCount != 0) {
-                                    //if(!geojson){
-                                    setTimeout(setDistrictLivabilityScore, 200);
+                            function resetLayerStyle (layer){
+                                if(geojson == null){
+                                    setTimeout(function (){resetLayerStyle(layer)}, 200);
                                     return;
                                 }
-                                //feature.properties.density = Math.round(ScoreService.calculateDistrictScore(feature.properties.name)*10);
-
                                 geojson.resetStyle(layer);
                             }
 
-                            setDistrictLivabilityScore();
+                            resetLayerStyle(layer);
                         }
                     });
 
